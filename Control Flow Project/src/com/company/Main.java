@@ -43,11 +43,11 @@ public class Main {
                     continue;
                 }
                 int choose = scan.nextInt();
-                if (choose >= 0 && String.valueOf(choose).length() == 2) {
+                if (choose >= 0 && String.valueOf(choose).length() < 3) {
                     System.out.print("Thank you!   ");
                 }
                 else{
-                    System.out.print("Invalid Input. Format-Two digits, i.e. 00, 32, 13 - Reenter Number: ");
+                    System.out.print("Invalid Input, i.e. 6, 32, 13 - Reenter Number: ");
                     getAnswerInt();
                 }
                 return choose;
@@ -67,17 +67,8 @@ public class Main {
             int answer3 = getAnswerInt();
             System.out.print("What is your lucky number? (digits!): ");
             int answer4 = getAnswerInt();
-            System.out.print("Do you have a favorite quarterback? If so, what's their jersey number?: ");
-            String answer5 = getAnswer();
-            if (answer5.matches("no|n")) {
-                System.out.print("No problem! I'll just assign a random number here.");
-                int max = 65;
-                int min = 1;
-                int range = max - min + 1;
-                int answer5Int = (int) (Math.random() * range) + min;
-            } else {
-                int answer5Int = Integer.parseInt(answer5);
-
+            System.out.print("Do you have a favorite quarterback? If so, what's their jersey number? If not, just enter a number: ");
+            int answer5Int = getAnswerInt();
                 System.out.print("What is the two digit model year of your car? (2007 -> 07): ");
                 int answer6 = getAnswerInt();
                 System.out.print("What is the first name of your favorite actor or actress?: ");
@@ -148,7 +139,6 @@ public class Main {
                 System.out.print("Lottery: " + LottoNumbers);
                 System.out.print("  Magic Ball: " + magicNumber + "\n");
             }
-        }
         else{
             System.out.println("That's not a valid response! Try again.");
             Main.interactiveQuestions();
